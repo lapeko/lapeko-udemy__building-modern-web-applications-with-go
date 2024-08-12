@@ -24,11 +24,11 @@ type Dog struct {
 	Color string
 }
 
-func (cat Dog) Says() string {
+func (cat *Dog) Says() string {
 	return "Woof"
 }
 
-func (cat Dog) NumberOfLegs() int {
+func (cat *Dog) NumberOfLegs() int {
 	return 4
 }
 
@@ -40,5 +40,5 @@ func main() {
 	cat := Cat{
 		Name: "Tom",
 	}
-	PrintInfo(cat)
+	PrintInfo(&cat)
 }
