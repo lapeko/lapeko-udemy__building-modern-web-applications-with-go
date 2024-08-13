@@ -24,4 +24,10 @@ func main() {
 	for _, person := range people {
 		fmt.Printf("Name: %s. Age: %d\n", person.FirstName, person.Age)
 	}
+
+	res, err := json.Marshal(people)
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Printf("%s\n", res)
 }
