@@ -1,4 +1,4 @@
-package main
+package helpers
 
 import (
 	"fmt"
@@ -6,8 +6,8 @@ import (
 	"net/http"
 )
 
-func renderPage(w http.ResponseWriter, pageName string) {
-	templatePath := "./templates/" + pageName + ".html"
+func RenderPage(w http.ResponseWriter, pageName string) {
+	templatePath := "templates/" + pageName + ".page.tmpl"
 	_template, err := template.ParseFiles(templatePath)
 	if err != nil {
 		fmt.Println(err)
