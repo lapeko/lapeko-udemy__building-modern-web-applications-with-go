@@ -7,8 +7,9 @@ import (
 )
 
 func RenderPage(w http.ResponseWriter, pageName string) {
-	templatePath := "templates/" + pageName + ".page.tmpl"
-	_template, err := template.ParseFiles(templatePath)
+	templatePath := "templates/" + pageName + ".page.gohtml"
+	layoutPath := "templates/base.layout.gohtml"
+	_template, err := template.ParseFiles(templatePath, layoutPath)
 	if err != nil {
 		fmt.Println(err)
 	}
