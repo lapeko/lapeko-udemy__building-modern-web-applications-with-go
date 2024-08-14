@@ -10,7 +10,6 @@ const PORT = ":3011"
 
 func main() {
 	m := routes.InitializeRoutes()
-	http.Handle("/", m)
 	log.Println("Server is running on port", PORT)
-	_ = http.ListenAndServe(PORT, nil)
+	_ = http.ListenAndServe(PORT, m)
 }
