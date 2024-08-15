@@ -1,13 +1,19 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+	"log"
+)
 
 func main() {
-	r := gin.Default()
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "pong",
+	router := gin.Default()
+	router.LoadHTMLGlob("templates/*")
+	router.GET("/", func(c *gin.Context) {
+		log.Println("Visit home page")
+		c.HTML(200, "home.page.gohtml", gin.H{
+			"Title":   "Home page",
+			"Message": "Home page's message",
 		})
 	})
-	_ = r.Run(":3031")
+	_ = router.Run(":3031")
 }
